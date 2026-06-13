@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopi Nemu Kediri - Estetik & Syahdu</title>
+    
+    <!-- Font dari Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome untuk Icon Media Sosial -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* PANDUAN WARNA & RESET */
+        :root {
+            --warna-utama: #3E2723; /* Cokelat Kopi Tua */
+            --warna-latar: #F5F5DC; /* Beige / Krem Lembut */
+            --warna-aksen: #D7CCC8; /* Putih Susu Hangat */
+            --warna-teks: #5D4037;
+            --putih: #FFFFFF;
+            --shadow-halus: 0 10px 30px rgba(62, 39, 35, 0.05);
+            --shadow-tegas: 0 15px 35px rgba(62, 39, 35, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--warna-latar);
+            color: var(--warna-teks);
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        /* NAVIGATION BAR */
+        .navbar {
+            background-color: rgba(62, 39, 35, 0.95);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            backdrop-filter: blur(8px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+
+        .nav-logo {
+            font-family: 'Playfair Display', serif;
+            color: var(--putih);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-item a {
+            color: var(--warna-aksen);
+            text-decoration: none;
+            padding: 8px 15px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-item a:hover {
+            color: var(--putih);
+        }
+
+        /* GLOBAL CONTAINER */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--warna-utama);
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--warna-utama);
+            margin: 15px auto 30px auto;
+            border-radius: 2px;
+        }
+
+        /* 1. HERO SECTION */
+        .hero {
+            background: linear-gradient(rgba(62, 39, 35, 0.55), rgba(62, 39, 35, 0.7)), 
+                        url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop') no-repeat center center/cover;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--putih);
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--putih);
+            font-size: 4rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 4px 10px rgba(0,0,0,0.4);
+            font-weight: 700;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            font-style: italic;
+            margin-bottom: 35px;
+            letter-spacing: 1px;
+            font-weight: 300;
+            opacity: 0.95;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background-color: #25D366; 
+            color: white;
+            padding: 14px 32px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-3px);
+            background-color: #20ba5a;
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.4);
+        }
+
+        /* 2. MENU SECTION */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
+            margin-top: 20px;
+        }
+
+        .menu-card {
+            background-color: var(--putih);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-halus);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        .menu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-tegas);
+        }
+
+        .menu-img-wrapper {
+            overflow: hidden;
+            height: 220px;
+            width: 100%;
+        }
+
+        .menu-img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .menu-card:hover .menu-img {
+            transform: scale(1.08);
+        }
+
+        .menu-info {
+            padding: 25px;
+        }
+
+        .menu-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--warna-utama);
+            margin-bottom: 8px;
+        }
+
+        .menu-desc {
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 20px;
+            height: 45px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .menu-price {
+            font-weight: 600;
+            color: var(--warna-teks);
+            font-size: 1.15rem;
+            border-top: 1px solid #F5F5F5;
+            padding-top: 15px;
+        }
+
+        /* 3. TESTIMONI SECTION */
+        .testi-section {
+            background-color: #ECE0D1; /* Warna transisi cokelat susu yang estetik */
+            padding: 80px 0;
+        }
+
+        .testi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testi-card {
+            background-color: var(--putih);
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: var(--shadow-halus);
+            position: relative;
+        }
+
+        .stars {
+            color: #FFD700;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+
+        .testi-text {
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .testi-profile {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .testi-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-color: var(--warna-aksen);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--warna-utama);
+            font-weight: bold;
+        }
+
+        .testi-user {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--warna-utama);
+        }
+
+        /* 4. MAPS SECTION */
+        .address-text {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 500;
+            font-size: 1.05rem;
+            color: #6D4C41;
+        }
+
+        .maps-box {
+            background-color: var(--putih);
+            padding: 15px;
+            border-radius: 24px;
+            box-shadow: var(--shadow-tegas);
+            border: 1px solid rgba(215, 204, 200, 0.5);
+            overflow: hidden;
+        }
+
+        .map-container {
+            position: relative;
+            padding-bottom: 45%; 
+            height: 0;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            pointer-events: auto; 
+        }
+
+        /* 5. FOOTER & SOSMED */
+        footer {
+            background-color: var(--warna-utama);
+            color: var(--warna-aksen);
+            text-align: center;
+            padding: 60px 20px 40px 20px;
+        }
+
+        footer p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+
+        .sosmed-container {
+            margin: 30px 0;
+        }
+
+        .sosmed-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.06);
+            color: var(--putih);
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 1.3rem;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .sosmed-link:hover {
+            color: var(--putih);
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .sosmed-link.wa:hover { background-color: #25D366; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4); }
+        .sosmed-link.ig:hover { background-color: #E1306C; box-shadow: 0 5px 15px rgba(225, 48, 108, 0.4); }
+        .sosmed-link.tt:hover { background-color: #000000; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4); }
+
+        .copyright {
+            font-size: 0.85rem;
+            opacity: 0.6;
+            margin-top: 35px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 768px) {
+            .nav-menu { display: none; } 
+            .hero-content h1 { font-size: 2.6rem; }
+            .hero-content p { font-size: 1.1rem; }
+            h2 { font-size: 2rem; }
+            .container { padding: 50px 0; }
+            .map-container {
+                padding-bottom: 70px;
+                height: 350px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">☕ Kopi Nemu</a>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#">Beranda</a></li>
+                <li class="nav-item"><a href="#menu">Menu</a></li>
+                <li class="nav-item"><a href="#testi">Testimoni</a></li>
+                <li class="nav-item"><a href="#lokasi">Lokasi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Kopi Nemu Kediri</h1>
+            <p>Tempat Nemu Ketenangan di Tiap Cangkir</p>
+            <a href="https://wa.me/628123456789?text=Halo%20Kopi%20Nemu%20Kediri,%20saya%20mau%20tanya%20menu%20dan%20reservasi%20tempat%20dong!" class="btn-cta" target="_blank">
+                <i class="fab fa-whatsapp"></i> Chat WhatsApp Sekarang
+            </a>
+        </div>
+    </header>
+
+    <!-- 2. DAFTAR MENU -->
+    <section class="container" id="menu">
+        <h2>Daftar Menu Favorit</h2>
+        <div class="menu-grid">
+            <!-- Menu 1 -->
+            <div class="menu-card">
+                <div class="menu-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=500&auto=format&fit=crop" alt="Es Kopi Susu" class="menu-img">
+                </div>
+                <div class="menu-info">
+                    <div class="menu-title">Es Kopi Susu Nemu</div>
+                    <div class="menu-desc">Espresso blend, susu segar, dan gula aren premium berkualitas tinggi.</div>
+                    <div class="menu-price">Rp 18.000</div>
+                </div>
+            </div>
+            <!-- Menu 2 -->
+            <div class="menu-card">
+                <div class="menu-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?q=80&w=500&auto=format&fit=crop" alt="Matcha Latte" class="menu-img">
+                </div>
+                <div class="menu-info">
+                    <div class="menu-title">Matcha Latte Kediri</div>
+                    <div class="menu-desc">Matcha murni dari Jepang dengan sentuhan manis yang pas di lidah lokal.</div>
+                    <div class="menu-price">Rp 22.000</div>
+                </div>
+            </div>
+            <!-- Menu 3 -->
+            <div class="menu-card">
+                <div class="menu-img-wrapper">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=500&auto=format&fit=crop" alt="Croissant" class="menu-img">
+                </div>
+                <div class="menu-info">
+                    <div class="menu-title">Croissant Almond</div>
+                    <div class="menu-desc">Pastry yang renyah di luar, lembut di dalam dengan mentega melimpah.</div>
+                    <div class="menu-price">Rp 15.000</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. TESTIMONI -->
+    <section class="testi-section" id="testi">
+        <div class="container">
+            <h2>Kata Mereka (Testimoni)</h2>
+            <div class="testi-grid">
+                <!-- Testi 1 -->
+                <div class="testi-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testi-text">"Tempatnya estetik parah, cocok buat work from cafe atau sekadar nongkrong sore. Kopi susunya pas, nggak bikin pusing. Langganan baru di Kediri!"</p>
+                    <div class="testi-profile">
+                        <div class="testi-avatar">R</div>
+                        <div class="testi-user">Rian, Mahasiswa UNISKA</div>
+                    </div>
+                </div>
+                <!-- Testi 2 -->
+                <div class="testi-card">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testi-text">"Suka banget sama konsep outdoor-nya yang rindang. Kalau malam minggu ramai banget tapi pelayanannya tetap cepat. Wajib coba Croissant-nya!"</p>
+                    <div class="testi-profile">
+                        <div class="testi-avatar">S</div>
+                        <div class="testi-user">Siti, Kediri Kota</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. LOKASI / GOOGLE MAPS -->
+    <section class="container" id="lokasi">
+        <h2>Lokasi Kedai Kami</h2>
+        <p class="address-text">📍 Jl. Dhoho, Kota Kediri, Jawa Timur <br><span style="font-size: 0.85rem; font-weight: normal; opacity: 0.8;">(Gunakan 2 jari di HP atau scroll di PC untuk memperbesar)</span></p>
+        
+        <div class="maps-box">
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.9642672727105!2d112.01026137604473!3d-7.814781477599026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e78570db40243b7%3A0x6bfe8628205efc8a!2sJl.%20Dhoho%2C%20Kediri%2C%20Kota%20Kediri%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1718274000000!5m2!1sid!2sid" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. FOOTER -->
+    <footer>
+        <p>Hubungi atau kunjungi profil sosial media resmi kami:</p>
+        <div class="sosmed-container">
+            <a href="https://wa.me/628123456789?text=Halo%20Kopi%20Nemu%20Kediri!" class="sosmed-link wa" target="_blank" title="Buka WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://instagram.com/instagram" class="sosmed-link ig" target="_blank" title="Buka Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://tiktok.com/@tiktok" class="sosmed-link tt" target="_blank" title="Buka TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Kopi Nemu Kediri. All Rights Reserved. Made with ♥ untuk Kediri.
+        </div>
+    </footer>
+
+</body>
+</html>
